@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const blogRoutes = require('./routes/blogRoutes')
+const port = process.env.PORT || 4000
 
 
 // express app
@@ -10,7 +11,7 @@ const app = express()
 //connect to mongodb
 const dbURI = 'mongodb+srv://mdp:gombloh0896@cluster0.i7fxk.mongodb.net/node?retryWrites=true&w=majority'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
-    .then(() => app.listen(3000))
+    .then(() => app.listen(port))
     .catch((err) => console.log(err))
 
 // register view engine
